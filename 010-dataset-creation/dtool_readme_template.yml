@@ -1,0 +1,14 @@
+project: Project name
+description: Short description
+owners:
+  - name: {DTOOL_USER_FULL_NAME}
+    email: {DTOOL_USER_EMAIL}
+    username: {username}
+    orcid: Please obtain an ORCID at orcid.org
+funders:
+  - organization: Please add funding organization
+    program: Please add the specific program within which funding occured
+    code: Please add funding code of that organization
+creation_date: '{date}'
+expiration_date: '{date}'
+
