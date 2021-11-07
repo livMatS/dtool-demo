@@ -9,6 +9,6 @@ do
   xdotool type --delay $DELAY "$line"
   sleep 0.2
   xdotool key Return
-  sleep 1
+  sleep 3
 done < stdin_file
 setxkbmap -layout ${ORIGINAL_KEYBOARD_LAYOUT}
