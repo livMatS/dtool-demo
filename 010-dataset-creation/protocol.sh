@@ -1,7 +1,7 @@
 #!/bin/bash -x
 # create README.yml template with simple metadata ontology
 cat dtool_readme_template.yml
-cp .dtool_readme.yml
+cp dtool_readme_template.yml ~/.dtool_readme.yml
 
 # create simple dtool.json configuration
 cat dtool.json
