@@ -1,0 +1,7 @@
+dtoolcore
+dtool-create
+dtool-info
+dtool-lookup-api
+dtool-s3
+dtool-smb
+git+https://github.com/IMTEK-Simulation/dtool-lookup-client@master#egg=dtool-lookup-client
