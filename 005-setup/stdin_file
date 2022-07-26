@@ -1,31 +1,23 @@
 source ${HOME}/venv/jlh-imtek-python-3.8/bin/activate
 asciinema rec --overwrite recording.cast
-
 python -m venv venv
 source venv/bin/activate
-
 pip install -r requirements.txt
 
-dtool --help
 
+
+
+dtool --help
 cat dtool.json
 mkdir -p ~/.config/dtool
 cp dtool.json ~/.config/dtool/
-
 dtool ls s3://test-bucket
 dtool ls -v s3://test-bucket
-
 dtool ls -v s3://test-bucket/1a1f9fad-8589-413e-9602-5bbd66bfe675
 dtool summary s3://test-bucket/1a1f9fad-8589-413e-9602-5bbd66bfe675
-
 mkdir -p datasets
-
 dtool cp s3://test-bucket/1a1f9fad-8589-413e-9602-5bbd66bfe675 datasets
-
 dtool ls -v datasets
-dtool summary -h datasets/simple_test_dataset
-
-cp dtool.json ~/.config/dtool/
-
+dtool summary datasets/simple_test_dataset
 exit
 exit
