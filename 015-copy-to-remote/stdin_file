@@ -1,0 +1,12 @@
+source ${HOME}/venv/jlh-imtek-python-3.8/bin/activate
+asciinema rec --overwrite recording.cast
+cat dtool.json
+mkdir -p ~/.config/dtool
+cp dtool.json ~/.config/dtool/
+source ../005-setup/venv/bin/activate
+dtool ls -v ../010-dataset-creation
+dtool ls -v s3://test-bucket
+dtool cp ../010-dataset-creation/demo-dataset s3://test-bucket
+dtool ls -v s3://test-bucket
+exit
+exit
