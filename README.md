@@ -1,6 +1,12 @@
 # dtool-demo
 
-A few simple samples on how to use dtool
+A few simple samples on how to use dtool on the command line.
+
+* [Setup](005-setup/README.md)
+* [Copy from remote](008-copy-from-remote/README.md)
+* [Dataset creation](010-dataset-creation/README.md)
+* [Copy to remote](015-copy-to-remote/README.md)
+* [Search and query](018-search-and-query/README.md)
 
 # Recordings
 
