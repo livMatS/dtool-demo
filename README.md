@@ -1,6 +1,6 @@
 # dtool-demo
 
-A few simple samples on how to use dtool on the command line.
+A few simple samples on how to use [dtool](https://dtool.readthedocs.io/en/latest/) on the command line.
 
 * [Setup](005-setup/README.md)
 * [Copy from remote](008-copy-from-remote/README.md)
