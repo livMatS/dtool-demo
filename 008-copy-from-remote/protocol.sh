@@ -21,4 +21,4 @@ dtool cp s3://test-bucket/1a1f9fad-8589-413e-9602-5bbd66bfe675 datasets
 
 # inspect local dataset
 dtool ls -v datasets
-dtool summary -h datasets/simple_test_dataset
+dtool summary datasets/simple_test_dataset
