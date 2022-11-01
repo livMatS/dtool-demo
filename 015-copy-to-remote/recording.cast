@@ -32,7 +32,7 @@
 [4.269004, "o", "n"]
 [4.583057, "i", "\r"]
 [4.583171, "o", "\r\n"]
-[4.586234, "o", "{\r\n  \"DTOOL_S3_ACCESS_KEY_ID_test-bucket\": \"testuser_access_key\",\r\n  \"DTOOL_S3_DATASET_PREFIX_test-bucket\": \"u/testuser/\",\r\n  \"DTOOL_S3_ENDPOINT_test-bucket\": \"https://livmats-data.uni-freiburg.de:9000\",\r\n  \"DTOOL_S3_SECRET_ACCESS_KEY_test-bucket\": \"testuser_secret_key\"\r\n}\r\n"]
+[4.586234, "o", "{\r\n  \"DTOOL_S3_ACCESS_KEY_ID_test-bucket\": \"testuser_access_key\",\r\n  \"DTOOL_S3_DATASET_PREFIX_test-bucket\": \"u/testuser/\",\r\n  \"DTOOL_S3_ENDPOINT_test-bucket\": \"https://livmats-data.vm.uni-freiburg.de:9000\",\r\n  \"DTOOL_S3_SECRET_ACCESS_KEY_test-bucket\": \"testuser_secret_key\"\r\n}\r\n"]
 [4.587064, "o", "\u001b]0;jotelha@jotelha-fujitsu-ubuntu-20:~/git/dtool-demo/015-copy-to-remote\u001b\\"]
 [4.590925, "o", "\u001b]7;file://jotelha-fujitsu-ubuntu-20/home/jotelha/git/dtool-demo/015-copy-to-remote\u001b\\"]
 [4.591282, "o", "> "]
