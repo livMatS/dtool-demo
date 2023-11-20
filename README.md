@@ -29,3 +29,8 @@ entry within `.bashrc` for simple '> ' prompt in recording.
 
 
 Requires `terminator`
+
+# Mock datasets
+
+The `scripts` folder holds snippets for the generation of several hundred mock datasets.
+These datasets are filled with metadata from `README.yml` files within `sample-content`.
