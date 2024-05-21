@@ -12,7 +12,7 @@ A few simple samples on how to use [dtool](https://dtool.readthedocs.io/en/lates
 
 Created with `asciinema`, stdin held within `stdin_file`, `xdotool`, `terminator` and `play_stdin.sh` replay script.
 
-Expects `asciinema` installed within venv `${HOME}/venv/jlh-imtek-python-3.8/bin/activate`.
+Expects `asciinema` installed within `venv` of repository root.
 
 Uses `asciinema` config file as found below `asciinema` here.
 
@@ -27,8 +27,9 @@ fi
 
 entry within `.bashrc` for simple '> ' prompt in recording.
 
-
 Requires `terminator`
+
+See `scripts` folder for more information on how to reproduce recordings.
 
 # Mock datasets
 
