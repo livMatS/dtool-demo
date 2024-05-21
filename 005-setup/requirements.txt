@@ -2,7 +2,6 @@ urllib3<1.27
 dtoolcore
 dtool-create
 dtool-info
-dtool-lookup-api
 dtool-s3
 dtool-smb
 git+https://github.com/livMatS/dtool-lookup-api@main#egg=dtool-lookup-api
