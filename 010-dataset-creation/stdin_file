@@ -1,10 +1,11 @@
-source ${HOME}/venv/jlh-imtek-python-3.8/bin/activate
+source ../venv/bin/activate
 asciinema rec --overwrite recording.cast
 cat dtool_readme_template.yml
 cp dtool_readme_template.yml ~/.dtool_readme.yml
 cat dtool.json
 mkdir -p ~/.config/dtool
 cp dtool.json ~/.config/dtool/
+source ../005-setup/venv/bin/activate
 dtool create demo-dataset
 echo test-content > test-data-file.txt
 dtool add item test-data-file.txt demo-dataset
@@ -19,7 +20,7 @@ University of Freiburg
 Haushaltsstelle
 
 
-2032-08-01
+2034-05-21
 dtool freeze demo-dataset
 ls -lha demo-dataset
 ls -lha demo-dataset/data
