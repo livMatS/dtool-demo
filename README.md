@@ -1,3 +1,5 @@
+[![DOI:10.5281/zenodo.11237941](https://zenodo.org/badge/DOI/10.5281/zenodo.11237942.svg)](https://zenodo.org/doi/10.5281/zenodo.11237941)
+
 # dtool-demo
 
 A few simple samples on how to use [dtool](https://dtool.readthedocs.io/en/latest/) on the command line.
