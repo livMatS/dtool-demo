@@ -1,4 +1,4 @@
-source ${HOME}/venv/jlh-imtek-python-3.8/bin/activate
+source ../venv/bin/activate
 asciinema rec --overwrite recording.cast
 cat dtool.json
 mkdir -p ~/.config/dtool
