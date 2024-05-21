@@ -4,4 +4,5 @@ dtool-info
 dtool-lookup-api
 dtool-s3
 dtool-smb
-git+https://github.com/IMTEK-Simulation/dtool-lookup-client@master#egg=dtool-lookup-client
+git+https://github.com/livMatS/dtool-lookup-api@main#egg=dtool-lookup-api
+git+https://github.com/livMatS/dtool-lookup-client@main#egg=dtool-lookup-client

@@ -1,13 +1,9 @@
-source ${HOME}/venv/jlh-imtek-python-3.8/bin/activate
+source ../venv/bin/activate
 asciinema rec --overwrite recording.cast
 python -m venv venv
 source venv/bin/activate
-pip install wheel
 pip install -r requirements.txt
-
-
-
-
 dtool --help
+dtool --version
 exit
 exit
