@@ -1,3 +1,4 @@
+urllib3<1.27
 dtoolcore
 dtool-create
 dtool-info
