@@ -4,7 +4,7 @@ ORIGINAL_KEYBOARD_LAYOUT=$(setxkbmap -print -verbose 10 | grep layout | awk '{pr
 setxkbmap -layout us
 terminator &
 sleep 1
-xdotool type --delay $DELAY "source ${HOME}/venv/jlh-imtek-python-3.8/bin/activate"
+xdotool type --delay $DELAY "source ../venv/bin/activate"
 sleep 0.2
 xdotool key Return
 sleep 3
@@ -34,6 +34,11 @@ sleep 0.2
 xdotool key Return
 sleep 3
 
+xdotool type --delay $DELAY "dtool search --help"
+sleep 0.2
+xdotool key Return
+sleep 3
+
 xdotool type --delay $DELAY "dtool search demo"
 sleep 0.2
 xdotool key Return
@@ -44,17 +49,27 @@ sleep 0.2
 xdotool key Return
 sleep 3
 
-xdotool type --delay $DELAY "dtool readme show s3://test-bucket/07c2cae6-7611-4918-a10b-2bc24a365970"
+xdotool type --delay $DELAY "dtool readme show s3://test-bucket/5e507882-cf44-42a3-8af0-3b1541a59cc1"
 sleep 0.2
 xdotool key Return
 sleep 3
 
-xdotool type --delay $DELAY 'dtool query '"'"'{"readme.owners.name":{"$regex":"H.*rmann"}}'"'"
+xdotool type --delay $DELAY "dtool query --help"
 sleep 0.2
 xdotool key Return
 sleep 3
 
-xdotool type --delay $DELAY "dtool readme edit s3://test-bucket/1a1f9fad-8589-413e-9602-5bbd66bfe675"
+xdotool type --delay $DELAY 'dtool query '"'"'{"readme.owners.name":{"$regex":"Hörmann"}, "readme.creation_date":{"$regex":"^2024"}}'"'"
+sleep 0.2
+xdotool key Return
+sleep 3
+
+xdotool type --delay $DELAY 'dtool query '"'"'{"readme.owners.name":{"$regex":"H.*rmann"}, "readme.creation_date":{"$regex":"^2024"}}'"'"
+sleep 0.2
+xdotool key Return
+sleep 3
+
+xdotool type --delay $DELAY "dtool readme edit s3://test-bucket/5e507882-cf44-42a3-8af0-3b1541a59cc1"
 sleep 0.2
 xdotool key Return
 sleep 3
@@ -64,18 +79,18 @@ for run in {1..4}; do
   sleep 0.2
 done
 
-for run in {1..19}; do
+for run in {1..29}; do
   xdotool key Right
   sleep 0.2
 done
 
-for run in {1..9}; do
+for run in {1..2}; do
   xdotool key BackSpace
   sleep 0.2
 done
 
 setxkbmap -layout ${ORIGINAL_KEYBOARD_LAYOUT}
-xdotool type --delay $DELAY "Hörmann, Johannes"
+xdotool type --delay $DELAY "ö"
 setxkbmap -layout us
 
 xdotool key 'ctrl+o'
@@ -85,7 +100,7 @@ sleep 0.2
 xdotool key 'ctrl+x'
 sleep 0.2
 
-xdotool type --delay $DELAY 'dtool query '"'"'{"readme.owners.name":{"$regex":"H.*rmann"}}'"'"
+xdotool type --delay $DELAY 'dtool query '"'"'{"readme.owners.name":{"$regex":"H.*rmann"}, "readme.creation_date":{"$regex":"^2024"}}'"'"
 sleep 0.2
 xdotool key Return
 sleep 3
