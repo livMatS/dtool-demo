@@ -1,3 +1,6 @@
 ..bfg-report
 *.mp4
 demo-datasets
+datasets/
+venv/
+.idea/
