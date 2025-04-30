@@ -6,11 +6,11 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.16.4
+#       jupytext_version: 1.17.0
 #   kernelspec:
-#     display_name: Python (dolfin)
+#     display_name: Python 3 (ipykernel)
 #     language: python
-#     name: dolfinx-env
+#     name: python3
 # ---
 
 # %% [markdown]
@@ -209,23 +209,13 @@ dtoolcore.copy(another_dataset.uri, remote+another_dataset.uuid)
 # See documentation of dtool-lookup-api at https://dtool-lookup-api.readthedocs.io for a thorough documentation of posing queries to dserver
 
 # %%
-import dtool_lookup_api
-
-# %% [markdown]
-# Set up user data  
-# ```
-# export DSERVER_TOKEN_GENERATOR_URL=https://demo.dtool.dev/
-# export DSERVER_USERNAME=testuser
-# export DSERVER_PASSWORD=test_password
-# ```
+import dtool_lookup_api.asynchronous as dl
 
 # %%
-# !export DSERVER_URL=https://demo.dtool.dev/
-# !export DSERVER_USERNAME=testuser
-# !export DSERVER_PASSWORD=test_password
+await dl.get_versions()
 
 # %%
-dtool_lookup_api.core.config
+await dl.get_config()
 
 # %% [markdown]
 # ## Query provenance graph from dserver
