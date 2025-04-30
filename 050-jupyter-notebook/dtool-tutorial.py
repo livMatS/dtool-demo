@@ -211,11 +211,154 @@ dtoolcore.copy(another_dataset.uri, remote+another_dataset.uuid)
 # %%
 import dtool_lookup_api.asynchronous as dl
 
+# %% [markdown]
+# To test the connection with the remote dserver instance, we inspect the versions of all server-side plugins:
+
 # %%
 await dl.get_versions()
 
 # %%
 await dl.get_config()
+
+# %% [markdown]
+# List all registered base URIs.
+
+# %%
+await dl.get_base_uris()
+
+# %% [markdown]
+# Searches for the free text John in the base uri s3://test-bucket
+
+# %%
+await dl.get_datasets(free_text="John", base_uris=['s3://test-bucket'])
+
+# %%
+pagination = {}
+
+# %% [markdown]
+# Searches for the datasets with the tag core-family in the s3://test-bucket
+
+# %%
+await dl.get_datasets(base_uris=['s3://test-bucket'], tags=["core-family"], pagination=pagination, page_size=5)
+
+# %% [markdown]
+# Pagination gives the information regarding the current page number and the total number of pages 
+
+# %%
+pagination
+
+# %%
+await dl.get_datasets(base_uris=['s3://test-bucket'], tags=["core-family"], pagination=pagination, page_size=5, page_number=2)
+
+# %% [markdown]
+# Fetches a dataset with a particular uuid form the s3://test-bucket 
+
+# %%
+await dl.get_dataset('s3://test-bucket/e2d97c0c-390c-4e72-9905-316154cfc994')
+
+# %% [markdown]
+# # Searching using Mongo queries 
+
+# %% [markdown]
+# Getting the datasets from the mongo query 
+
+# %%
+await dl.get_datasets_by_mongo_query(query={},base_uris=['s3://test-bucket'])
+
+# %% [markdown]
+# Searching for a single tag using mongo query
+
+# %%
+await dl.get_datasets_by_mongo_query(query={"tags":"core-family"})
+
+# %% [markdown]
+# Searching multiple tags using mongo query 
+
+# %%
+await dl.get_datasets_by_mongo_query(query={"tags":["core-family","second-generation"]})
+
+# %% [markdown]
+# Searching for annotations using mongo query 
+
+# %%
+await dl.get_datasets_by_mongo_query(query={"annotations.Sex":"Male"})
+
+# %% [markdown]
+# Searching for tags and annotations using mongo query
+
+# %%
+await dl.get_datasets_by_mongo_query(query={"annotations.Sex":"Female", "tags": "core-family"})
+
+# %% [markdown]
+# Searching for the occurence of a keyword in the contact addresses using mongo query
+
+# %%
+await dl.get_datasets_by_mongo_query(query={"readme.contact.address":{"$regex": "Chicago"}})
+
+# %% [markdown]
+# ## Getting the annotations of a dataset by uri
+
+# %%
+await dl.get_annotations('s3://test-bucket/31b778e2-d2e6-4d5a-bba1-5580717b3bff')
+
+# %% [markdown]
+# ## Getting the tags of a dataset by uri
+
+# %%
+await dl.get_tags('s3://test-bucket/31b778e2-d2e6-4d5a-bba1-5580717b3bff')
+
+# %% [markdown]
+# ## Getting the manifest of a dataset by uri
+
+# %%
+await dl.get_manifest('s3://test-bucket/31b778e2-d2e6-4d5a-bba1-5580717b3bff')
+
+# %% [markdown]
+# ## Getting the readme of a dataset by uri
+
+# %%
+await dl.get_readme('s3://test-bucket/31b778e2-d2e6-4d5a-bba1-5580717b3bff')
+
+# %% [markdown]
+# ## Getting the graph of a particular dataset using the uuid
+
+# %%
+data = await dl.get_graph_by_uuid('31b778e2-d2e6-4d5a-bba1-5580717b3bff')
+
+# %%
+import networkx as nx
+import matplotlib.pyplot as plt
+from networkx.drawing.nx_agraph import graphviz_layout
+
+# %%
+# Create a directed graph
+G = nx.DiGraph()
+
+# Adding nodes with labels
+for item in data:
+    name = item['name']
+    tags = ', '.join(item.get('tags', []))
+    label = f"{name}\n({tags})"
+    G.add_node(item['uuid'], label=label)
+
+# Adding edges from 'derived_from'
+for item in data:
+    child = item['uuid']
+    for parent in item['derived_from']:
+        G.add_edge(parent, child)
+
+# %%
+# Draw the graph with pygraphviz layout
+plt.figure(figsize=(12, 8))
+pos = graphviz_layout(G, prog='dot')  # Tree layout
+
+node_labels = nx.get_node_attributes(G, 'label')
+nx.draw(G, pos, with_labels=False, node_size=2500, node_color='lightblue', arrows=True)
+nx.draw_networkx_labels(G, pos, labels=node_labels, font_size=8)
+
+plt.title("Family Relationship Graph")
+plt.axis('off')
+plt.show()
 
 # %% [markdown]
 # ## Query provenance graph from dserver
